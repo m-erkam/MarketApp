@@ -1,26 +1,63 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import MainPage from './MainPage';
+import React, {useEffect, useState} from 'react';
+import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import LoginInputBox from './components/LoginInputBox';
 import styles from "./styles/LoginStyle";
-import SignUp from './SignUp';
+import axios from 'axios';
+
 
 function Login({navigation}){
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const URL = "https://dummyjson.com/users";    
+    const [users, setUsers] = useState([]);
+    let isUser = true;
+
+    async function fetch(){
+        const response = await axios.get(URL);
+        setUsers(response.data.users);
+        
+    }
+
+    useEffect(()=>{
+        fetch();
+    }, [])
+
     function handleLogin(){
-        navigation.navigate("MainPage");
+        for(let i = 0; i<users.length; i++){
+            const user = users[i];
+         
+            if(user.username == username){
+                if(user.password == password){
+                    isUser = true;
+                }
+            }
+        }
+        if(isUser){
+            navigation.navigate("MainPage");
+        }else{
+            Alert.alert("Wrong username or password");
+        }
+        
     }
 
     function handleSignUp(){
         navigation.navigate("SignUp");
     }
 
+    function changeUsername(username){
+        setUsername(username);
+    }
+    function changePassword(password){
+        setPassword(password);
+    }
+
     return(
         <View style={styles.container}>
             <View style={styles.input_box}>
-                <LoginInputBox title="Username" />
+                <LoginInputBox title="Username" onChange={changeUsername} value={username} isHidden={false}/>
             </View>
             <View style={styles.input_box}>
-                <LoginInputBox title="Password" />
+                <LoginInputBox title="Password" onChange={changePassword} value={password} isHidden={true}/>
             </View>
             
             <TouchableOpacity onPress={handleLogin} style={styles.button}>

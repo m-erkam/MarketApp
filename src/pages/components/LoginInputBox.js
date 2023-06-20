@@ -1,12 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 
 function LoginInputBox(props){
-const [input, setInput] = useState("");
-
     return(
         <View>
-            <TextInput placeholder={props.title} value={input} onChangeText={setInput} style={styles.input_text}/>      
+            <TextInput placeholder={props.title} 
+                        value={props.value} 
+                        onChangeText={props.onChange} 
+                        style={styles.input_text}
+                        secureTextEntry={props.isHidden}
+                        />      
         </View>
     )
 }

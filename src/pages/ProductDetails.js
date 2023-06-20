@@ -15,8 +15,6 @@ function ProductDetails({route}){
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.description}> {item.description} </Text>
             </View>
-
-            
         </View>
     )
 }

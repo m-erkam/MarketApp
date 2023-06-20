@@ -2,22 +2,20 @@ import React, {useEffect, useState} from 'react'
 import { FlatList, TouchableOpacity, View } from 'react-native'
 import axios from "axios"
 import ProductBox from './components/ProductBox';
-import styles from "./styles/MainPageStyle"
-import MainRoundButton from './components/MainRoundButton';
+import styles from "./styles/HomeStyle"
+import MainRoundButton from './components/HomeRoundButton';
 import ProductDetails from './ProductDetails';
 
 
 function MainPage({navigation}){
     const URL = "https://dummyjson.com/products";
     const [products, setProducts] = useState([]);
-    const [currentItem, setCurrentItem] = useState("");
 
     async function fetch(){
         const response = await axios.get(URL);
         setProducts(response.data.products);
     }
 
-    
 
     const renderProduct = ({item}) => {
         function handleDetails(){

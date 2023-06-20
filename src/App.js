@@ -2,7 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './pages/Login';
-import MainPage from './pages/MainPage';
+import MainPage from './pages/Home';
 import Favorites from './pages/Favorites';
 import Cart from './pages/Cart';
 import SignUp from './pages/SignUp';
