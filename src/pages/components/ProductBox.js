@@ -2,6 +2,7 @@ import React from 'react'
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
+
 function ProductBox(props){
     const handleFav = () => {
         props.handleFav(props.product);
@@ -13,7 +14,7 @@ function ProductBox(props){
     return(
         <View style={styles.container}>
             <View>
-                <Image source={{uri: props.product.thumbnail}} style={{width:120, height:120, borderRadius:5,}}/>
+                <Image source={{uri: props.product.thumbnail}} style={{width:120, height:120, borderRadius:5,}} resizeMode="contain" />
             </View>
             <View style={styles.inner_part}>
                 <View style={styles.inner_left}>
@@ -68,7 +69,8 @@ const styles = StyleSheet.create({
         width:45,
         borderRadius:22,
         borderWidth:1,
-        borderColor:"pink"
+        borderColor:"pink",
+        
 
       
     },
