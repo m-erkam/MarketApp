@@ -35,7 +35,7 @@ function Login({navigation}){
             }
         }
         if(isUser){
-            navigation.navigate("Main", realUser);
+            navigation.navigate("RoofCart", realUser);
         }else{
             Alert.alert("Wrong username or password");
         }

@@ -67,9 +67,14 @@ function Home({navigation, route}){
         
 
 
-        return (<TouchableOpacity onPress={handleDetails}>
-            <ProductBox product={item} handleFav={handleFav} handleCart={handleCart}/> 
-        </TouchableOpacity>)
+        return (
+            <SkeletonContent isLoading={true}>
+                <TouchableOpacity onPress={handleDetails}>
+                    <ProductBox product={item} handleFav={handleFav} handleCart={handleCart}/> 
+                </TouchableOpacity>
+            </SkeletonContent>
+                
+        )
     };
 
     

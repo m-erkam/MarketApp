@@ -13,5 +13,10 @@ export default StyleSheet.create({
         margin:5,
         flexDirection:"row",
         justifyContent:"space-between",
+    },
+    welcome:{
+        fontSize:20,
+        fontWeight:"400",
+        margin:5,
     }
 })

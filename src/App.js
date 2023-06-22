@@ -41,7 +41,18 @@ function App(){
                     )}} />
                 </Tab.Navigator>
             </Provider>
-            
+        )
+    }
+
+    const RoofCart = (params) => {
+        const user = params.route.params;
+        return(
+            <Provider store={store}>
+                <Stack.Navigator>
+                    <Stack.Screen name='Main' component={Main} options={{headerShown:false}} initialParams={user}/>
+                    <Stack.Screen name='ProductDetails' component={ProductDetails} options={{headerStyle:{backgroundColor:"#AFEEEE"}, title:""}}/>
+                </Stack.Navigator>
+            </Provider>
         )
     }
 
@@ -49,10 +60,12 @@ function App(){
         <NavigationContainer>
             <Stack.Navigator >
                 <Stack.Screen name='Login' component={Login} options={{headerShown:false }}/>
-                <Stack.Screen name='Main' component={Main} options={{headerShown:false}}/>
                 <Stack.Screen name='SignUp' component={SignUp} />
-                <Stack.Screen name='ProductDetails' component={ProductDetails} options={{headerStyle:{backgroundColor:"#AFEEEE"}, title:""}}/>
+                <Stack.Screen name='RoofCart' component={RoofCart} options={{headerShown:false}}/>
             </Stack.Navigator>
+   {/*          <Stack.Navigator>
+                
+            </Stack.Navigator> */}
         </NavigationContainer>
     )
 

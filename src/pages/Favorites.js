@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Text, View, FlatList, StyleSheet } from 'react-native'
+import React from 'react'
+import { View, FlatList } from 'react-native'
 import { useSelector } from 'react-redux';
 import FavoriteBox from './components/FavoriteBox';
 import styles from "./styles/FavoritesStyle"
@@ -29,7 +29,6 @@ function Favorites({navigation}){
                 renderItem={renderFav} 
                 ItemSeparatorComponent={itemSeparator}
             >
-
             </FlatList>
         </View>
     )
