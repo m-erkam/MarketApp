@@ -3,6 +3,13 @@ import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import { SvgUri } from 'react-native-svg';
 
 function ProductBox(props){
+    const handleFav = () => {
+        props.handleFav(props.product);
+    }
+
+    const handleCart = () => {
+        props.handleCart(props.product);
+    }
     return(
         <View style={styles.container}>
             <View>
@@ -15,16 +22,14 @@ function ProductBox(props){
                 </View>
                 <View style={styles.inner_right}>
                     <View style={styles.favorite_button}>
-                            <TouchableOpacity>
-                                <SvgUri  uri="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg" height={30} width={30}  viewBox='0 0 128 128'/>
+                            <TouchableOpacity onPress={handleFav}>
+                                <SvgUri  uri="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg" height={33} width={33}  viewBox='0 0 128 128'/>
                                 {/* <Image source={{uri:"https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"}} style={{height:30, width:30}} /> */}                    
                             </TouchableOpacity>
                         </View>
                         <View style={styles.favorite_button}>
-                            <TouchableOpacity >
-                            
-                                <Image  source={{uri: "https://w7.pngwing.com/pngs/798/196/png-transparent-computer-icons-shopping-cart-e-commerce-add-to-cart-button-purple-angle-text.png"}} style={{width:28, height:28}}/>
-                            
+                            <TouchableOpacity onPress={handleCart}>                            
+                                <Image  source={{uri: "https://w7.pngwing.com/pngs/798/196/png-transparent-computer-icons-shopping-cart-e-commerce-add-to-cart-button-purple-angle-text.png"}} style={{width:30, height:30}}/>
                             </TouchableOpacity>
                     </View>
                 </View>             
@@ -38,28 +43,30 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         borderRadius:8,
         borderWidth:1,
-        borderColor:"#C0C0C0"
+        borderColor:"#C0C0C0",
+        maxHeight:120,
+
 
     },
     title:{
-        margin:5,
+        margin:3,
         fontSize:17,
         fontWeight:"bold",
         maxWidth:Dimensions.get("window").width*3/7,
     },
     price:{
-        margin:5,
+        margin:3,
         fontSize:17,
 
     },
     favorite_button:{
-        margin:5,
-        padding:5,
+        margin:3,
+        padding:3,
         justifyContent:"center",
         alignItems:"center",
-        height:40,
-        width:40,
-        borderRadius:20,
+        height:45,
+        width:45,
+        borderRadius:22,
         borderWidth:1,
         borderColor:"pink"
 

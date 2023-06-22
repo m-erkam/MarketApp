@@ -6,11 +6,12 @@ import axios from 'axios';
 
 
 function Login({navigation}){
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("atuny0");
+    const [password, setPassword] = useState("9uQFF1Lh");
     const URL = "https://dummyjson.com/users";    
     const [users, setUsers] = useState([]);
-    let isUser = true;
+    let realUser;
+    let isUser = false;
 
     async function fetch(){
         const response = await axios.get(URL);
@@ -29,11 +30,12 @@ function Login({navigation}){
             if(user.username == username){
                 if(user.password == password){
                     isUser = true;
+                    realUser=user;
                 }
             }
         }
         if(isUser){
-            navigation.navigate("MainPage");
+            navigation.navigate("Main", realUser);
         }else{
             Alert.alert("Wrong username or password");
         }
