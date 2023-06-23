@@ -11,10 +11,12 @@ function ProductBox(props){
     const handleCart = () => {
         props.handleCart(props.product);
     }
+
+    
     return(
-        <View style={styles.container}>
+        <View style={styles.container} >
             <View>
-                <Image source={{uri: props.product.thumbnail}} style={{width:120, height:120, borderRadius:5,}} resizeMode="contain" />
+                <Image source={{uri: props.product.thumbnail}} style={{width:118, height:118, borderRadius:5,}} resizeMode="contain" />
             </View>
             <View style={styles.inner_part}>
                 <View style={styles.inner_left}>

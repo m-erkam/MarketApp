@@ -22,7 +22,7 @@ function App(){
         const user = params.route.params;
         return(
             <Provider store={store}>
-                <Tab.Navigator barStyle={{backgroundColor:"#AFEEEE"}}>
+                <Tab.Navigator barStyle={{backgroundColor:"#AFEEEE", height:70}}>
                     <Tab.Screen name='Home' component={Home} initialParams={user}
                     options={{tabBarLabel:'Home', tabBarIcon:({color}) => (
                         <MaterialCommunityIcons name="home" color={color} size={25} />

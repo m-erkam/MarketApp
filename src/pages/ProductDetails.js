@@ -6,7 +6,7 @@ import { addCart } from './redux/actions/cartActions';
 
 
 function ProductDetails({route}){
-    console.log(route);
+    
     const item = route.params;
 
 

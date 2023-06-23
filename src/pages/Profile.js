@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import { View, FlatList, Text } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 import ProfileBox from './components/ProfileBox';
 import styles from './styles/ProfileStyle'
 
 
-function Profile({route}){
-    
+function Profile({navigation, route}){
     const user = route.params;
- 
+    
+    const returnLogin = () => {
+        navigation.navigate("Login");
+    }
     return(
         <View style={styles.container}>
             <View style={styles.top_part}>
@@ -26,6 +28,9 @@ function Profile({route}){
                 <Text style={styles.title}>Email</Text>
                 <ProfileBox value={user.email}/> 
             </View>
+            <TouchableOpacity onPress={returnLogin} style={styles.logout}>
+                <Text style={styles.logout_text}> Log out </Text>
+            </TouchableOpacity>
         </View>
     )
 }
