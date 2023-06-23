@@ -7,7 +7,7 @@ import MainRoundButton from './components/HomeRoundButton';
 import { addFav, removeFav } from './redux/actions/favActions';
 import { addCart, removeCart } from './redux/actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
-import SkeletonContent from "react-native-skeleton-content";
+
 
 
 
@@ -68,11 +68,11 @@ function Home({navigation, route}){
 
 
         return (
-            <SkeletonContent isLoading={true}>
+           
                 <TouchableOpacity onPress={handleDetails}>
                     <ProductBox product={item} handleFav={handleFav} handleCart={handleCart}/> 
                 </TouchableOpacity>
-            </SkeletonContent>
+            
                 
         )
     };
