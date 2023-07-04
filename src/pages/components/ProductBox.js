@@ -16,7 +16,7 @@ function ProductBox(props){
     return(
         <View style={styles.container} >
             <View>
-                <Image source={{uri: props.product.thumbnail}} style={{width:118, height:118, borderRadius:5,}} resizeMode="contain" />
+                <Image source={{uri: props.product.thumbnail}} style={{width:118, height:118, borderRadius:59,}} resizeMode="contain" />
             </View>
             <View style={styles.inner_part}>
                 <View style={styles.inner_left}>
@@ -32,7 +32,7 @@ function ProductBox(props){
                         </View>
                         <View style={styles.favorite_button}>
                             <TouchableOpacity onPress={handleCart}>                            
-                                <Image  source={{uri: "https://w7.pngwing.com/pngs/798/196/png-transparent-computer-icons-shopping-cart-e-commerce-add-to-cart-button-purple-angle-text.png"}} style={{width:30, height:30}}/>
+                                <Image  source={{uri: "https://o.remove.bg/downloads/c3f07685-43a2-4cd9-a5c3-d7c9b5f89e9f/png-transparent-computer-icons-shopping-cart-e-commerce-add-to-cart-button-purple-angle-text-removebg-preview.png"}} style={{width:34, height:34}}/>
                             </TouchableOpacity>
                     </View>
                 </View>             
@@ -70,8 +70,7 @@ const styles = StyleSheet.create({
         height:45,
         width:45,
         borderRadius:22,
-        borderWidth:1,
-        borderColor:"pink",
+        backgroundColor:"#AFEEEE"
         
 
       

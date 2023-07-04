@@ -3,11 +3,12 @@ import { View, Text, Image, TouchableOpacity,Alert } from 'react-native'
 import styles from "./styles/ProductDetailsStyle"
 import { useDispatch, useSelector } from 'react-redux';
 import { addCart } from './redux/actions/cartActions';
+import { SliderBox } from "react-native-image-slider-box"
 
 
-function ProductDetails({route}){
+function ProductDetails(props){
     
-    const item = route.params;
+    const item = props.route.params;
 
 
     const dispatch = useDispatch();
@@ -30,7 +31,11 @@ function ProductDetails({route}){
     return(
         <View style={styles.container} >
             <View style={styles.image}>
-                <Image source={{ uri:item.images[0]}} style={{height:350, width:350}} resizeMode="contain"/>
+                <SliderBox 
+                    images = {item.images}
+                    sliderBoxHeight = {350}
+                    resizeMode = "contain"
+                />
             </View>
             <View style={styles.after_image}>
                 <Text style={styles.title}>{item.title}</Text>

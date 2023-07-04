@@ -24,6 +24,7 @@ function Login({navigation}){
     }, [])
 
     function handleLogin(){
+
         for(let i = 0; i<users.length; i++){
             const user = users[i];
          
@@ -47,7 +48,7 @@ function Login({navigation}){
     }
 
     function changeUsername(username){
-        setUsername(username);
+        setUsername(username);   
     }
     function changePassword(password){
         setPassword(password);

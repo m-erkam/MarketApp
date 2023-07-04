@@ -7,8 +7,7 @@ export default StyleSheet.create({
     container:{
         margin:5,
         padding:5,
-        paddingBottom:0,
-        
+        paddingBottom:0,  
     },
     button_part:{
         padding:5,
@@ -22,10 +21,10 @@ export default StyleSheet.create({
         margin:5,
     },
     search:{
-        borderRadius:15, 
-        justifyContent:"flex-end", 
-        backgroundColor: '#AFEEEE',
+        borderRadius:10,
         flex:1,
+        backgroundColor:"#EEAFAF",
+        
     },
     search_text:{
         marginLeft:3,
@@ -35,18 +34,21 @@ export default StyleSheet.create({
         justifyContent:"space-between",
         alignItems:"center",
         marginBottom:5,
+        padding:3,
+   
     },
     option_button:{
         margin:2,
         borderRadius:10,
-        padding:7,
+        padding:2,
         alignItems:"center",
-        backgroundColor: '#AFEEEE',
+        backgroundColor: '#EEAFAF',
         justifyContent:"center",
+       
     },
     modal:{  
         backgroundColor: '#AFEEEE',
-        borderRadius: 20,
+
         
         
     }
