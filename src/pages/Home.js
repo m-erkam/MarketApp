@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { FlatList, TouchableOpacity, View, Alert, Text, TextInput, Modal, Pressable } from 'react-native'
+import { FlatList, TouchableOpacity, View, Alert, Text, TextInput, Modal, ScrollView } from 'react-native'
 import axios from "axios"
 import ProductBox from './components/ProductBox';
 import styles from "./styles/HomeStyle"
@@ -17,7 +17,8 @@ function Home({navigation, route}){
     const [manipulatedList, setManipulatedList] = useState([]);
     const [searchedItem, setSearchedItem] = useState("");
     const [filterVisible, setFilterVisible] = useState(false);
-    const [filterInnerVisible, setFilterInnerVisible] = useState(false);
+    const [filterBrandVisible, setFilterBrandVisible] = useState(false);
+    const [filterCategoryVisible, setFilterCategoryVisible] = useState(false);
     const [sortVisible, setSortVisible] = useState(false);
 
     const dispatch = useDispatch();
@@ -159,10 +160,43 @@ function Home({navigation, route}){
         }
     }
 
-    const filterProducts = (type) => {
-        if (type == "brand"){
+    const categoryFilterSmart = (product) => {
+        return product.category.match("smartphones");
+    }
+    const categoryFilterLaptop = (product) => {
+        return product.category.match("laptops");
+    }
+    const categoryFilterFragrance = (product) => {
+        return product.category.match("fragrances");
+    }
+    const categoryFilterSkin = (product) => {
+        return product.category.match("skincare");
+    }
+    const categoryFilterGroceries = (product) => {
+        return product.category.match("groceries");
+    }
+    const categoryFilterHome = (product) => {
+        return product.category.match("home-decoration");
+    }
 
+    const filterProductsCategory = (type) => {
+        if (type == "smartphones"){
+            setManipulatedList(products.filter(categoryFilterSmart));
+        }else if (type == "laptops"){
+            setManipulatedList(products.filter(categoryFilterLaptop));
+        }else if (type == "fragrances"){
+            setManipulatedList(products.filter(categoryFilterFragrance));
+        }else if (type == "skincare"){
+            setManipulatedList(products.filter(categoryFilterSkin));
+        }else if (type == "groceries"){
+            setManipulatedList(products.filter(categoryFilterGroceries));
+        }else if (type == "home-decoration"){
+            setManipulatedList(products.filter(categoryFilterHome));
         }
+    }
+
+    const resetFilter = () => {
+        setManipulatedList(products);
     }
 
 
@@ -174,40 +208,142 @@ function Home({navigation, route}){
                 >
                 <View style={{flex:1}}>
                     <View style={styles.modal}>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), filterProducts()}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
+                        <TouchableOpacity onPress={() => {setFilterVisible(false), setFilterCategoryVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
+                            <Text> Category </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), filterProducts()}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
+                        <TouchableOpacity onPress={() => {setFilterVisible(false), setFilterBrandVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
+                            <Text> Brand </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), filterProducts()}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), filterProducts()}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
+                        <TouchableOpacity onPress={() => {setFilterVisible(false), resetFilter()}} style={{backgroundColor:"white",padding:10,}}>
+                            <Text> Reset Filters </Text>
                         </TouchableOpacity>
                     </View>  
                 </View>     
             </Modal>
 
             <Modal 
-                visible={filterInnerVisible}
+                visible={filterBrandVisible}
                 animationType="fade"
+                transparent={true}
                 >
                 <View style={{flex:1}}>
                     <View style={styles.modal}>
-                        <TouchableOpacity onPress={() => {setFilterInnerVisible(false), setFilterInnerVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterInnerVisible(false), setFilterInnerVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterInnerVisible(false), setFilterInnerVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterInnerVisible(false), setFilterInnerVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Click to close </Text>
-                        </TouchableOpacity>
+                        <ScrollView>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Apple </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Samsung </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> OPPO </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Huawei </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Microsoft Surface </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Infinix </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> HP Pavilion </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Impression of Acqua Di Gio </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Royal_Mirage </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Fog Scent Xpressio </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Al Munakh </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Lord - Al-Rehab </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> L'Oreal Paris </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Hemani Tea </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Dermive </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> ROREC White Rice </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Fair & Clear </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Saaf & Khaas </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Bake Parlor Big </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Baking Food Items </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> fauji </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Dry Rose </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Boho Decor </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Flying Wooden </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> LED Lights </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> luxury palace </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> Golden </Text>
+                            </TouchableOpacity>
+                        </ScrollView>
+                        
+                    </View>  
+                </View>     
+            </Modal>
+
+            <Modal 
+                visible={filterCategoryVisible}
+                animationType="fade"
+                transparent={true}
+                >
+                <View style={{flex:1}}>
+                    <View style={styles.modal}>
+                        <ScrollView>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("smartphones")}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> smartphones </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("laptops")}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> laptops </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("fragrances")}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> fragrances </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("skincare")}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> skincare </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("groceries")}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> groceries </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("home-decoration")}} style={{backgroundColor:"white",padding:10,}}>
+                                <Text> home-decoration </Text>
+                            </TouchableOpacity>
+                        </ScrollView>
+                        
                     </View>  
                 </View>     
             </Modal>

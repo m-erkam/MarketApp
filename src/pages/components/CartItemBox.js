@@ -1,13 +1,20 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import QuantityBox from './QuantityBox';
 
 const CartItemBox = (props) => {
     return(
         <View style={styles.container}>
             <TouchableOpacity onPress={props.gotoDetails} style={styles.box}>
                 <Image source={{uri:props.product.thumbnail}} style={{height:80, width:80, borderRadius:5}}/>
-                <Text style={styles.title}>{props.product.title}</Text>
+                <View style={{flex:1}}>
+                    <Text style={styles.title}> {props.product.title}</Text>
+                    <Text style={styles.price}> {props.product.price}$ </Text>
+                </View>
+                <View style={{justifyContent:"center", alignItems:"center"}}>
+                    <QuantityBox quantity={props.quantity} setQuantity={props.setQuantity}/>
+                </View>
             </TouchableOpacity>
             <View style={styles.delete}>
                 <TouchableOpacity onPress={props.delete}>
@@ -33,15 +40,23 @@ const styles = StyleSheet.create({
         flex:1,
     },
     title:{
-        padding:5,
-        margin:5,
+        padding:3,
+        margin:3,
         fontSize:18,
         fontWeight:"bold",
-        flex:1,
+        
     },
+    price:{
+        padding:3,
+        margin:3,
+        fontSize:18,
+        fontWeight:"bold",
+        color:"#85BB65",
+    },  
     delete:{
         justifyContent:"center",
-    }
+    },
+
 })
 
 export default CartItemBox;
