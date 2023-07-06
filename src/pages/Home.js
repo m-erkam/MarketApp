@@ -102,19 +102,19 @@ function Home({navigation, route}){
 
    
     const sortProducts = (option) => {
-        console.log(products);
+        
         switch(option){
             case("alpha"):
-                setManipulatedList(products.sort(compareAlpha));
+                setManipulatedList(manipulatedList.sort(compareAlpha));
                 break;
             case("increasing"):
-                setManipulatedList(products.sort(compareIncPrice));
+                setManipulatedList(manipulatedList.sort(compareIncPrice));
                 break;
             case("decreasing"):
-                setManipulatedList(products.sort(compareDecPrice));
+                setManipulatedList(manipulatedList.sort(compareDecPrice));
                 break;
             case("default"):{
-                setManipulatedList(products.sort(compareId));
+                setManipulatedList(manipulatedList.sort(compareId));
                 break;
             }
         }

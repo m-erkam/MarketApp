@@ -13,7 +13,7 @@ const CartItemBox = (props) => {
                     <Text style={styles.price}> {props.product.price}$ </Text>
                 </View>
                 <View style={{justifyContent:"center", alignItems:"center"}}>
-                    <QuantityBox quantity={props.quantity} setQuantity={props.setQuantity}/>
+                    <QuantityBox quantity={props.quantity} incQuantity={props.incQuantity} decQuantity={props.decQuantity}/>
                 </View>
             </TouchableOpacity>
             <View style={styles.delete}>
@@ -21,6 +21,8 @@ const CartItemBox = (props) => {
                     <MaterialCommunityIcons name="delete" color={"red"} size={40}/>
                 </TouchableOpacity>
             </View>
+            
+            
             
         </View>
         
