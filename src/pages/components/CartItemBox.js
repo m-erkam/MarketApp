@@ -12,15 +12,18 @@ const CartItemBox = (props) => {
                     <Text style={styles.title}> {props.product.title}</Text>
                     <Text style={styles.price}> {props.product.price}$ </Text>
                 </View>
-                <View style={{justifyContent:"center", alignItems:"center"}}>
+            </TouchableOpacity>
+            <View style={styles.options}>
+                <View style={styles.quantity}>
                     <QuantityBox quantity={props.quantity} incQuantity={props.incQuantity} decQuantity={props.decQuantity}/>
                 </View>
-            </TouchableOpacity>
-            <View style={styles.delete}>
-                <TouchableOpacity onPress={props.delete}>
-                    <MaterialCommunityIcons name="delete" color={"red"} size={40}/>
-                </TouchableOpacity>
+                <View style={styles.delete}>
+                    <TouchableOpacity onPress={props.delete}>
+                        <MaterialCommunityIcons name="delete" color={"red"} size={35}/>
+                    </TouchableOpacity>
+                </View>
             </View>
+            
             
             
             
@@ -44,8 +47,9 @@ const styles = StyleSheet.create({
     title:{
         padding:3,
         margin:3,
-        fontSize:18,
+        fontSize:20,
         fontWeight:"bold",
+        color:"black",
         
     },
     price:{
@@ -58,6 +62,16 @@ const styles = StyleSheet.create({
     delete:{
         justifyContent:"center",
     },
+    options:{
+        flexDirection:"row",
+        justifyContent:"space-between",
+        
+    },
+    quantity:{
+        justifyContent:"center", 
+        alignItems:"center",
+        marginBottom:20,
+    }
 
 })
 

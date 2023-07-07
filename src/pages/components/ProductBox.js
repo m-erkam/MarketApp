@@ -16,7 +16,7 @@ function ProductBox(props){
     return(
         <View style={styles.container} >
             <View>
-                <Image source={{uri: props.product.thumbnail}} style={{width:118, height:118, borderRadius:35,}} resizeMode="contain" />
+                <Image source={{uri: props.product.thumbnail}} style={{width:118, height:118, borderRadius:5,}} resizeMode="contain" />
             </View>
             <View style={styles.inner_part}>
                 <View style={styles.inner_left}>
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         borderRadius:8,
         borderWidth:1,
         borderColor:"#C0C0C0",
+        backgroundColor:"white",
         maxHeight:120,
 
 
@@ -55,11 +56,14 @@ const styles = StyleSheet.create({
         margin:3,
         fontSize:17,
         fontWeight:"bold",
+        color:"black",
         maxWidth:Dimensions.get("window").width*3/7,
     },
     price:{
         margin:3,
         fontSize:17,
+        fontWeight:"600",
+        color:"#ff9800"
 
     },
     favorite_button:{
@@ -70,7 +74,8 @@ const styles = StyleSheet.create({
         height:45,
         width:45,
         borderRadius:22,
-        backgroundColor:"#AFEEEE"
+        borderColor:"#ff9800",
+        borderWidth:2,
         
 
       
@@ -84,6 +89,10 @@ const styles = StyleSheet.create({
     },
     inner_right:{
         flexDirection:"column",
+    },
+    inner_left:{
+        justifyContent:"space-between",
+        padding:6,
     }
    
 })

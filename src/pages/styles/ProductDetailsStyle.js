@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
     container:{
         flex:1,
-        
+        backgroundColor:"#e0e0e0",
     },
     image:{
         padding:10,
@@ -19,28 +19,34 @@ export default StyleSheet.create({
     title:{
         fontSize:30,
         fontWeight:"bold",
+        color:"black",
     },
     description:{
         fontSize:17,
         fontWeight:"500",
+        color:"black",
     },
     price_box:{
         flexDirection:"row",
-        justifyContent:"flex-end",
-        backgroundColor:"#AFEEEE",
+        
+        backgroundColor:"white",
+        borderWidth:1,
+        borderColor:"#e0e0e0",
         flex:2,
         
     },
     price_inner_box:{
         flexDirection:"row",
         alignItems:"center",
+        flex:1,
         padding:10,
+        justifyContent:"space-between",
     },
     price:{
         fontSize:20,
         fontWeight:"bold",
-        marginRight:15,
-        color:"#85BB65",
+        marginLeft:15,
+        color:"#ff9800",
     },
     cart:{
         backgroundColor:"white",

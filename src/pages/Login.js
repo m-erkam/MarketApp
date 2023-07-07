@@ -62,13 +62,17 @@ function Login({navigation}){
             <View style={styles.input_box}>
                 <LoginInputBox title="Password" onChange={changePassword} value={password} isHidden={true}/>
             </View>
+            <View style={styles.button_view}>
+                <TouchableOpacity onPress={handleLogin} style={styles.button}> 
+                    <Text style={styles.button_text}> Login</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.button_view}>
+                <TouchableOpacity onPress={handleSignUp} style={styles.button} >
+                    <Text style={styles.button_text}> Sign Up</Text>
+                </TouchableOpacity>
+            </View>
             
-            <TouchableOpacity onPress={handleLogin} style={styles.button}>
-                <Text style={styles.button_text}> Login</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleSignUp} style={styles.button}>
-                <Text style={styles.button_text}> Sign Up</Text>
-            </TouchableOpacity>
         </View>
     )
 }

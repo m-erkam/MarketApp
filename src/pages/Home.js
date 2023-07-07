@@ -205,18 +205,23 @@ function Home({navigation, route}){
             <Modal 
                 visible={filterVisible}
                 animationType="fade"
+                style={styles.modal}
+                transparent={true}
+
                 >
-                <View style={{flex:1}}>
-                    <View style={styles.modal}>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), setFilterCategoryVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Category </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), setFilterBrandVisible(true)}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Brand </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setFilterVisible(false), resetFilter()}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text> Reset Filters </Text>
-                        </TouchableOpacity>
+                <View style={styles.category_container}>
+                    <View style={styles.inner_modal}>
+                        <ScrollView style={styles.modal_scroll}>
+                            <TouchableOpacity onPress={() => {setFilterVisible(false), setFilterCategoryVisible(true)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Category </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterVisible(false), setFilterBrandVisible(true)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Brand </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setFilterVisible(false), resetFilter()}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Reset Filters </Text>
+                            </TouchableOpacity>
+                        </ScrollView>
                     </View>  
                 </View>     
             </Modal>
@@ -225,90 +230,91 @@ function Home({navigation, route}){
                 visible={filterBrandVisible}
                 animationType="fade"
                 transparent={true}
+                style={styles.modal}
                 >
-                <View style={{flex:1}}>
-                    <View style={styles.modal}>
-                        <ScrollView>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Apple </Text>
+                <View style={styles.category_container}>
+                    <View style={styles.inner_modal}>
+                        <ScrollView style={styles.modal_scroll}>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Apple </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Samsung </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Samsung </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> OPPO </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> OPPO </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Huawei </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Huawei </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Microsoft Surface </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Microsoft Surface </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Infinix </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Infinix </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> HP Pavilion </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> HP Pavilion </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Impression of Acqua Di Gio </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Impression of Acqua Di Gio </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Royal_Mirage </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Royal_Mirage </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Fog Scent Xpressio </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Fog Scent Xpressio </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Al Munakh </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Al Munakh </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Lord - Al-Rehab </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Lord - Al-Rehab </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> L'Oreal Paris </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> L'Oreal Paris </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Hemani Tea </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Hemani Tea </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Dermive </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Dermive </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> ROREC White Rice </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> ROREC White Rice </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Fair & Clear </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Fair & Clear </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Saaf & Khaas </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Saaf & Khaas </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Bake Parlor Big </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Bake Parlor Big </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Baking Food Items </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Baking Food Items </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> fauji </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> fauji </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Dry Rose </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Dry Rose </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Boho Decor </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Boho Decor </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Flying Wooden </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Flying Wooden </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> LED Lights </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> LED Lights </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> luxury palace </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> luxury palace </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> Golden </Text>
+                            <TouchableOpacity onPress={() => {setFilterBrandVisible(false)}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Golden </Text>
                             </TouchableOpacity>
                         </ScrollView>
                         
@@ -320,27 +326,28 @@ function Home({navigation, route}){
                 visible={filterCategoryVisible}
                 animationType="fade"
                 transparent={true}
+                style={styles.modal}
                 >
-                <View style={{flex:1}}>
-                    <View style={styles.modal}>
-                        <ScrollView>
-                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("smartphones")}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> smartphones </Text>
+                <View style={styles.category_container}>
+                    <View style={styles.inner_modal}>
+                        <ScrollView style={styles.modal_scroll}>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("smartphones")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> smartphones </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("laptops")}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> laptops </Text>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("laptops")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> laptops </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("fragrances")}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> fragrances </Text>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("fragrances")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> fragrances </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("skincare")}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> skincare </Text>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("skincare")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> skincare </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("groceries")}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> groceries </Text>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("groceries")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> groceries </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("home-decoration")}} style={{backgroundColor:"white",padding:10,}}>
-                                <Text> home-decoration </Text>
+                            <TouchableOpacity onPress={() => {setFilterCategoryVisible(false), filterProductsCategory("home-decoration")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> home-decoration </Text>
                             </TouchableOpacity>
                         </ScrollView>
                         
@@ -351,22 +358,25 @@ function Home({navigation, route}){
             <Modal 
                 visible={sortVisible}
                 animationType="fade"
+                transparent={true}
+                style={styles.modal}
                 >
-                <View style={{flex:1, padding:5, borderWidth:1}}>
-                    <View style={styles.modal}>
-                        <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("default")}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text style={{fontWeight:"bold"}}> Featured </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("alpha")}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text style={{fontWeight:"bold"}}> Alphabetically </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("increasing")}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text style={{fontWeight:"bold"}}> Increasing Price </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("decreasing")}} style={{backgroundColor:"white",padding:10,}}>
-                            <Text style={{fontWeight:"bold"}}> Decreasing Price </Text>
-                        </TouchableOpacity>
-                        
+                <View style={styles.category_container}>
+                    <View style={styles.inner_modal}>
+                        <ScrollView style={styles.modal_scroll}>
+                            <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("default")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Featured </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("alpha")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Alphabetically </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("increasing")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Increasing Price </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {setSortVisible(false), sortProducts("decreasing")}} style={{padding:10,}}>
+                                <Text style={styles.filter_text}> Decreasing Price </Text>
+                            </TouchableOpacity>
+                        </ScrollView>
                     </View>  
                 </View>     
             </Modal>
@@ -376,16 +386,20 @@ function Home({navigation, route}){
             <Text style={styles.welcome}> Welcome {user.firstName}! </Text>
             <View style={styles.options}>
                 <View style={styles.search}>
-                    <TextInput style={styles.search_text} placeholder='Search' value={searchedItem} onChangeText={changeSearched}/>
+                    <TextInput style={styles.search_text} placeholder='Search'  value={searchedItem} onChangeText={changeSearched}/>
                 </View>
-        
-                <TouchableOpacity style={styles.option_button} onPress={() => setFilterVisible(true)}>
-                    <MaterialCommunityIcons name="filter" color={"black"} size={40} />
-                </TouchableOpacity>
+                <View style={styles.option_button}>
+                    <TouchableOpacity onPress={() => setFilterVisible(true)}>
+                        <MaterialCommunityIcons name="filter" color={"#ff9800"} size={35} />
+                    </TouchableOpacity>
+                </View>
                 
-                <TouchableOpacity style={styles.option_button} onPress={() => setSortVisible(true)}>
-                    <MaterialCommunityIcons name="view-list" color={"black"} size={40} />
-                </TouchableOpacity>
+                <View style={styles.option_button}>
+                    <TouchableOpacity onPress={() => setSortVisible(true)}>
+                        <MaterialCommunityIcons name="view-list" color={"#ff9800"} size={35} />
+                    </TouchableOpacity>
+                </View>
+                
                 
             </View>
             <FlatList 

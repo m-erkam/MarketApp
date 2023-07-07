@@ -16,28 +16,41 @@ import { Provider } from 'react-redux';
 
 function App(){
     const Stack = createNativeStackNavigator();
+
     const Tab = createMaterialBottomTabNavigator();
 
     const Main = (params) => {
         const user = params.route.params;
         return(
             <Provider store={store}>
-                <Tab.Navigator barStyle={{backgroundColor:"#AFEEEE", height:70}}>
-                    <Tab.Screen name='Home' component={Home} initialParams={user}
-                    options={{tabBarLabel:'Home', tabBarIcon:({color}) => (
-                        <MaterialCommunityIcons name="home" color={color} size={25} />
+                <Tab.Navigator barStyle={{backgroundColor:"white", height:70}} >
+                    <Tab.Screen name='Home' 
+                                component={Home} 
+                                initialParams={user} 
+                                options={{tabBarLabel:'Home', 
+                                        tabBarIcon:() => (<MaterialCommunityIcons name="home-outline" color="#ff9800" size={25} />), 
+                                        }}/>
+                    
+                    <Tab.Screen name='Favorites' 
+                                component={Favorites} 
+                                options={{tabBarLabel:'Favorites', 
+                                        tabBarIcon:() => (
+                                            <MaterialCommunityIcons name="heart-outline" color="#ff9800" size={25} />
                     )}}/>
-                    <Tab.Screen name='Favorites' component={Favorites} 
-                    options={{tabBarLabel:'Favorites', tabBarIcon:({color}) => (
-                        <MaterialCommunityIcons name="heart" color={color} size={25} />
-                    )}}/>
-                    <Tab.Screen name='Cart' component={Cart} 
-                    options={{tabBarLabel:'Cart', tabBarIcon:({color}) => (
-                        <MaterialCommunityIcons name="cart" color={color} size={25} />
-                    )}}/>
-                    <Tab.Screen name='Profile' component={Profile}  initialParams={user}
-                    options={{tabBarLabel:'Profile', tabBarIcon:({color}) => (
-                        <MaterialCommunityIcons name="account" color={color} size={25} />
+                    
+                    <Tab.Screen name='Cart' 
+                                component={Cart} 
+                                options={{tabBarLabel:'Cart', 
+                                        tabBarIcon:() => (
+                                            <MaterialCommunityIcons name="cart-outline" color="#ff9800" size={25} />),
+                                            }}/>
+                    
+                    <Tab.Screen name='Profile' 
+                                component={Profile}  
+                                initialParams={user}
+                                options={{tabBarLabel:'Profile', 
+                                        tabBarIcon:() => (
+                                            <MaterialCommunityIcons name="account-outline" color="#ff9800" size={25} />
                     )}} />
                 </Tab.Navigator>
             </Provider>
@@ -50,7 +63,7 @@ function App(){
             <Provider store={store}>
                 <Stack.Navigator>
                     <Stack.Screen name='Main' component={Main} options={{headerShown:false}} initialParams={user}/>
-                    <Stack.Screen name='ProductDetails' component={ProductDetails} options={{headerStyle:{backgroundColor:"#AFEEEE"}, title:""}}/>
+                    <Stack.Screen name='ProductDetails' component={ProductDetails} options={{headerStyle:{backgroundColor:"#ff9800"}, title:""}}/>
                 </Stack.Navigator>
             </Provider>
         )

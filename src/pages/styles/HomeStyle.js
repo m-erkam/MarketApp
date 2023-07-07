@@ -5,9 +5,9 @@ export default StyleSheet.create({
         height:2,
     },
     container:{
-        margin:5,
+     
         padding:5,
-        paddingBottom:0,  
+        backgroundColor:"#e5e4e2",
     },
     button_part:{
         padding:5,
@@ -16,14 +16,18 @@ export default StyleSheet.create({
         justifyContent:"space-between",
     },
     welcome:{
-        fontSize:20,
+        fontSize:25,
         fontWeight:"400",
         margin:5,
+        color:"#ff9800"
     },
     search:{
         borderRadius:10,
         flex:1,
-        backgroundColor:"#EEAFAF",
+        borderColor:"#808080",
+        borderWidth:2,
+        backgroundColor:"white",
+        height:45,
         
     },
     search_text:{
@@ -35,6 +39,7 @@ export default StyleSheet.create({
         alignItems:"center",
         marginBottom:5,
         padding:3,
+  
    
     },
     option_button:{
@@ -42,14 +47,34 @@ export default StyleSheet.create({
         borderRadius:10,
         padding:2,
         alignItems:"center",
-        backgroundColor: '#EEAFAF',
         justifyContent:"center",
+        borderColor:"#808080",
+        borderWidth:2,
+        backgroundColor:"white",
+        
        
     },
     modal:{  
-        backgroundColor: '#AFEEEE',
-
+        padding:15,
         
-        
+    },
+    inner_modal:{  
+        backgroundColor: '#ff9800',
+        padding:15,
+        borderRadius:15,
+    },
+    category_container:{
+        justifyContent:"center",
+        flex:1,
+        padding:15,
+    },
+    modal_scroll:{
+        backgroundColor: '#ff9800',
+    },
+    filter_text:{
+        fontWeight:"bold",
+        fontSize:20,
+        color:"white",
     }
+
 })

@@ -13,12 +13,19 @@ export default StyleSheet.create({
         width:325,
         alignItems:"center",
         justifyContent:"center",
-        backgroundColor:"#AFEEEE",
+        backgroundColor:"#ff9800",
         borderRadius:20,
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 5,
+    },
+    button_view:{
+        
     },
     button_text:{
         fontSize:25,
         fontWeight:"bold",
+        color:"white",
     },
     input_box:{
         padding:5,
