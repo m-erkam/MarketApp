@@ -113,10 +113,9 @@ function Home({navigation, route}){
             case("decreasing"):
                 setManipulatedList(manipulatedList.sort(compareDecPrice));
                 break;
-            case("default"):{
+            case("default"):
                 setManipulatedList(manipulatedList.sort(compareId));
                 break;
-            }
         }
     }
 

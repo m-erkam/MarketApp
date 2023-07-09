@@ -12,7 +12,7 @@ function Profile({navigation, route}){
     }
     return(
         <View style={styles.container}>
-            <View style={styles.top_part}>
+            <View >
                 <Text style={styles.title}>First Name</Text>
                 <ProfileBox value={user.firstName}/> 
             </View>

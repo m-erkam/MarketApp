@@ -17,14 +17,15 @@ const FavoriteBox = (props) => {
 const styles = StyleSheet.create({
     container:{
         flexDirection:"row",
-        borderWidth:1,
-        borderColor:"#E0E0E0"
+        backgroundColor:"white",
+        borderRadius:5,
     },
     title:{
         padding:5,
         margin:5,
         fontSize:18,
         fontWeight:"bold",
+        color:"black"
     }
 })
 

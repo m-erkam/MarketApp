@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:"#E0E0E0",
         padding:5,
+        backgroundColor:"white",
     },
     box:{
         flexDirection:"row",

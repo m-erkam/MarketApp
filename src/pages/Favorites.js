@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 import { useSelector } from 'react-redux';
 import FavoriteBox from './components/FavoriteBox';
 import styles from "./styles/FavoritesStyle"
@@ -24,6 +24,9 @@ function Favorites({navigation}){
 
     return(
         <View style={styles.container}>
+            <View style={styles.top_bar}>
+                <Text style={styles.title}> Favorites </Text>
+            </View>
             <FlatList 
                 data={favs}
                 renderItem={renderFav} 

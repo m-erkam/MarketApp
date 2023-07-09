@@ -60,7 +60,7 @@ export default StyleSheet.create({
     },
     inner_modal:{  
         backgroundColor: '#ff9800',
-        padding:15,
+        padding:10,
         borderRadius:15,
     },
     category_container:{

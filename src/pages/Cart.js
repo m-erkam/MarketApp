@@ -150,11 +150,18 @@ function Cart({navigation}){
         )
     }
 
+    const separator = <View style={styles.separator}/>
+
     return(
         <View style={styles.container}>
+            <View style={styles.top_bar}>
+                <Text style={styles.top_text}> My Cart </Text>
+            </View>
+            {/* {cart.length == 0 ? <Text style={styles.top_text}> Your cart is empty.</Text> : <Text > Items: </Text>} */}
             <FlatList
                 data = {cart}
                 renderItem={renderCart}
+                ItemSeparatorComponent={separator}
                 />
             <View style = {styles.price}>
                 <Text style={styles.price_text}> Total price is {totalPrice} </Text>
