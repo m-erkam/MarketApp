@@ -1,4 +1,5 @@
 import * as actionTypes from "../actions/cartActions";
+import { Alert } from 'react-native'
 const initState = []
 
 
@@ -24,9 +25,18 @@ const changeCart = (state = initState, action) => {
         state = newList;
         return newList;
     }else if (action.type == actionTypes.addCart().type){
-
-        
-        return [...state, action.payload];
+        if(state.length == 0){
+            return [...state, action.payload];
+        }else{
+            for (let i = 0; i < state.length; i++) {
+                if(state[i].title == action.payload.title){
+                    Alert.alert("Already in cart!");
+                    return state;
+                }else if(i == state.length-1){
+                    return [...state, action.payload];
+                }           
+            }
+        }
     }else {
         return state;
     }

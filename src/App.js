@@ -76,9 +76,6 @@ function App(){
                 <Stack.Screen name='SignUp' component={SignUp} />
                 <Stack.Screen name='RoofCart' component={RoofCart} options={{headerShown:false}}/>
             </Stack.Navigator>
-   {/*          <Stack.Navigator>
-                
-            </Stack.Navigator> */}
         </NavigationContainer>
     )
 

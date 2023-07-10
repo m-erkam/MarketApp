@@ -4,12 +4,13 @@ export default StyleSheet.create({
     container:{
         flex:1,
         padding:5,
-        backgroundColor:"#e5e4e2",
+        backgroundColor:"#f8f8ff",
         
     },
     price:{
+        flexDirection:"row",
         justifyContent:"flex-end",
-        alignItems:"flex-end",
+        alignItems:"center",
 
     },
     price_text:{
@@ -31,6 +32,16 @@ export default StyleSheet.create({
         borderBottomColor:"grey",
         alignItems:"center",
         padding:5,
+    },
+    buy_button:{
+        backgroundColor:"#ff9800",
+        borderRadius:15,
+        padding:5,
+        marginRight:5,
+    },
+    buy_text:{
+        color:"white",
+        fontSize:20,
     }
     
 })

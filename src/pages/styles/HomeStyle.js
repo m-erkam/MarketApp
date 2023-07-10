@@ -5,9 +5,8 @@ export default StyleSheet.create({
         height:2,
     },
     container:{
-     
         padding:5,
-        backgroundColor:"#e5e4e2",
+        backgroundColor:"#f8f8ff",
     },
     button_part:{
         padding:5,

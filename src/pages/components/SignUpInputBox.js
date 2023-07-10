@@ -6,7 +6,7 @@ function SignUpInputBox(props){
 
     return(
         <View>
-            <Text> {props.title} </Text>
+            <Text style={styles.text}> {props.title} </Text>
             <View style={styles.input_box}>
                 <TextInput placeholder={props.title + "..."}/>
             </View>
@@ -21,6 +21,10 @@ const styles = StyleSheet.create({
         borderRadius:8,
         borderWidth:1,
         borderColor:"black",
+        backgroundColor:"white",
+    },
+    text:{
+        color:"black",
     }
 })
 

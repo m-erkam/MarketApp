@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
     container:{
-        backgroundColor:"#e5e4e2",
+        backgroundColor:"#f8f8ff",
         flex:1,
         padding:5,
     },
@@ -23,6 +23,7 @@ export default StyleSheet.create({
         margin:5,
         borderRadius:15,
         backgroundColor:"#E42217",
+        maxWidth:Dimensions.get("window").width*2/9,
     },
     logout_text:{
         color:"white",

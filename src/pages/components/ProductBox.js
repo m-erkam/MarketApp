@@ -25,15 +25,15 @@ function ProductBox(props){
                 </View>
                 <View style={styles.inner_right}>
                     <View style={styles.favorite_button}>
-                            <TouchableOpacity onPress={handleFav}>
-                                <SvgUri  uri="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg" height={33} width={33}  viewBox='0 0 128 128'/>
-                                {/* <Image source={{uri:"https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"}} style={{height:30, width:30}} /> */}                    
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.favorite_button}>
-                            <TouchableOpacity onPress={handleCart}>                            
-                                <Image  source={{uri: "https://o.remove.bg/downloads/c3f07685-43a2-4cd9-a5c3-d7c9b5f89e9f/png-transparent-computer-icons-shopping-cart-e-commerce-add-to-cart-button-purple-angle-text-removebg-preview.png"}} style={{width:34, height:34}}/>
-                            </TouchableOpacity>
+                        <TouchableOpacity onPress={handleFav}>
+                            <SvgUri  uri="https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg" height={33} width={33}  viewBox='0 0 128 128'/>
+                            {/* <Image source={{uri:"https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg"}} style={{height:30, width:30}} /> */}                    
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.favorite_button}>
+                        <TouchableOpacity onPress={handleCart}>                            
+                            <Image  source={{uri: "https://o.remove.bg/downloads/c3f07685-43a2-4cd9-a5c3-d7c9b5f89e9f/png-transparent-computer-icons-shopping-cart-e-commerce-add-to-cart-button-purple-angle-text-removebg-preview.png"}} style={{width:34, height:34}}/>
+                        </TouchableOpacity>
                     </View>
                 </View>             
             </View>       
@@ -53,14 +53,14 @@ const styles = StyleSheet.create({
 
     },
     title:{
-        margin:3,
-        fontSize:17,
+        marginBottom:7,
+        fontSize:19,
         fontWeight:"bold",
         color:"black",
         maxWidth:Dimensions.get("window").width*3/7,
     },
     price:{
-        margin:3,
+       
         fontSize:17,
         fontWeight:"600",
         color:"#ff9800"
@@ -76,9 +76,6 @@ const styles = StyleSheet.create({
         borderRadius:22,
         borderColor:"#ff9800",
         borderWidth:2,
-        
-
-      
     },
     inner_part:{
         margin:10,
@@ -91,7 +88,7 @@ const styles = StyleSheet.create({
         flexDirection:"column",
     },
     inner_left:{
-        justifyContent:"space-between",
+        
         padding:6,
     }
    

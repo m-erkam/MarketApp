@@ -45,33 +45,11 @@ function Home({navigation, route}){
         };
         
         const handleFav = () => {
-            if(favs.length == 0){
-                dispatch(addFav(item));
-            }else{
-                for (let i = 0; i < favs.length; i++) {
-                    if(favs[i].title == item.title){
-                        Alert.alert("Already in favorites!");
-                        break;
-                    }else if(i == favs.length-1){
-                        dispatch(addFav(item)); 
-                    }           
-                }
-            }
+            dispatch(addFav(item));
         }  
 
         const handleCart = () => {
-            if(cart.length == 0){
-                dispatch(addCart(item));
-            }else{
-                for (let i = 0; i < cart.length; i++) {
-                    if(cart[i].title == item.title){
-                        Alert.alert("Already in cart!");
-                        break;
-                    }else if(i == cart.length-1){
-                        dispatch(addCart(item)); 
-                    }           
-                }
-            }
+            dispatch(addCart(item));
         }
         
         return ( 

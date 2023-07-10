@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container:{
         padding:5,
         flex:1,
-        backgroundColor:"#e5e4e2",
+        backgroundColor:"#f8f8ff",
     },
     separator:{
         height:4,
