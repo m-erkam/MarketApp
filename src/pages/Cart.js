@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItemBox from './components/CartItemBox';
 import { removeCart } from './redux/actions/cartActions';
@@ -157,7 +157,7 @@ function Cart({navigation}){
             <View style={styles.top_bar}>
                 <Text style={styles.top_text}> My Cart </Text>
             </View>
-            {/* {cart.length == 0 ? <Text style={styles.top_text}> Your cart is empty.</Text> : <Text > Items: </Text>} */}
+
             <FlatList
                 data = {cart}
                 renderItem={renderCart}
@@ -165,6 +165,9 @@ function Cart({navigation}){
                 />
             <View style = {styles.price}>
                 <Text style={styles.price_text}> Total price is {totalPrice} </Text>
+                <TouchableOpacity style={styles.buy_button}>
+                    <Text style={styles.buy_text}> Buy! </Text>
+                </TouchableOpacity>
             </View>
             
         </View>
