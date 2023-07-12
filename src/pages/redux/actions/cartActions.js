@@ -11,3 +11,11 @@ export const removeCart = (product) => {
         payload: product,
     };
 };
+
+export const replaceCart = (products) => {
+    return {
+        type: "REPLACE_CART",
+        payload: products,
+    };
+};
+

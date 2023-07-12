@@ -23,12 +23,12 @@ function App(){
         const user = params.route.params;
         return(
             <Provider store={store}>
-                <Tab.Navigator barStyle={{backgroundColor:"white", height:70}} >
+                <Tab.Navigator barStyle={{backgroundColor:"white", height:70}}  >
                     <Tab.Screen name='Home' 
                                 component={Home} 
                                 initialParams={user} 
                                 options={{tabBarLabel:'Home', 
-                                        tabBarIcon:() => (<MaterialCommunityIcons name="home-outline" color="#ff9800" size={25} />), 
+                                        tabBarIcon:() => (<MaterialCommunityIcons name="home-outline" color="#ff9800" size={25} />)
                                         }}/>
                     
                     <Tab.Screen name='Favorites' 
@@ -39,6 +39,7 @@ function App(){
                     )}}/>
                     
                     <Tab.Screen name='Cart' 
+                                initialParams={user} 
                                 component={Cart} 
                                 options={{tabBarLabel:'Cart', 
                                         tabBarIcon:() => (
@@ -62,7 +63,7 @@ function App(){
         return(
             <Provider store={store}>
                 <Stack.Navigator>
-                    <Stack.Screen name='Main' component={Main} options={{headerShown:false}} initialParams={user}/>
+                    <Stack.Screen name='Main' component={Main} options={{headerShown:false, statusBarColor:"#ff9800"}} initialParams={user}/>
                     <Stack.Screen name='ProductDetails' component={ProductDetails} options={{headerStyle:{backgroundColor:"#ff9800"}, title:""}}/>
                 </Stack.Navigator>
             </Provider>
@@ -72,9 +73,9 @@ function App(){
     return(
         <NavigationContainer>
             <Stack.Navigator >
-                <Stack.Screen name='Login' component={Login} options={{headerShown:false }}/>
-                <Stack.Screen name='SignUp' component={SignUp} />
-                <Stack.Screen name='RoofCart' component={RoofCart} options={{headerShown:false}}/>
+                <Stack.Screen name='Login' component={Login} options={{headerShown:false, statusBarColor:"#ff9800", }}/>
+                <Stack.Screen name='SignUp' component={SignUp } options={{statusBarColor:"#ff9800",}}/>
+                <Stack.Screen name='RoofCart' component={RoofCart} options={{headerShown:false, statusBarColor:"#ff9800",}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

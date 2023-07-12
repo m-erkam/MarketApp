@@ -74,8 +74,10 @@ const styles = StyleSheet.create({
         height:45,
         width:45,
         borderRadius:22,
-        borderColor:"#ff9800",
-        borderWidth:2,
+        backgroundColor:"white",
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 15,
     },
     inner_part:{
         margin:10,

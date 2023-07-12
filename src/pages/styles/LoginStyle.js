@@ -5,6 +5,7 @@ export default StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         flex:1,
+        backgroundColor:"#f8f8ff",
     },
     button:{
         padding:5,
@@ -33,8 +34,10 @@ export default StyleSheet.create({
         height:55,
         width:350,
         borderRadius:8,
-        borderWidth:1,
-        borderColor:"e0e0e0",
         fontWeight:"bold",
+        backgroundColor:"white",
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 15,
     },
 })

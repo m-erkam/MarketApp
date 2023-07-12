@@ -11,10 +11,13 @@ function ProfileBox(props){
 
 const styles = StyleSheet.create({
     container:{
-        borderWidth:1,
         borderRadius:5,
         padding:5,
+        margin:5,
         backgroundColor:"white",
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 10,
     },
     text:{
         color:"black",

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:"row",
         borderWidth:1,
-        borderColor:"#E0E0E0",
+        borderColor:"#f8f8ff",
         padding:5,
         backgroundColor:"white",
     },

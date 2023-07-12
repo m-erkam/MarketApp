@@ -38,6 +38,9 @@ export default StyleSheet.create({
         borderRadius:15,
         padding:5,
         marginRight:5,
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 5,
     },
     buy_text:{
         color:"white",

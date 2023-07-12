@@ -24,6 +24,9 @@ export default StyleSheet.create({
         borderRadius:15,
         backgroundColor:"#E42217",
         maxWidth:Dimensions.get("window").width*2/9,
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 15,
     },
     logout_text:{
         color:"white",

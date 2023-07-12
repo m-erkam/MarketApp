@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#e0e0e0",
+        backgroundColor:"#f8f8ff",
     },
     image:{
         padding:10,
@@ -31,7 +31,7 @@ export default StyleSheet.create({
         
         backgroundColor:"white",
         borderWidth:1,
-        borderColor:"#e0e0e0",
+        borderColor:"#f8f8ff",
         flex:2,
         
     },

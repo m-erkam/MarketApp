@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         backgroundColor:"white",
         borderWidth:1,
         borderRadius:5,
-        borderColor:"#e0e0e0",
+        borderColor:"#f8f8ff",
     },
     container_button:{
         flexDirection:"row",
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
         justifyContent:"space-evenly",
         padding:3,
         flexDirection:"row",
-        alignItems:"flex-end"
+        alignItems:"flex-end",
+        
     },
     button_outline:{
         margin:3,
@@ -69,8 +70,10 @@ const styles = StyleSheet.create({
         height:45,
         width:45,
         borderRadius:22,
-        borderColor:"#ff9800",
-        borderWidth:2,
+        backgroundColor:"white",
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 5,
     }
 })
 

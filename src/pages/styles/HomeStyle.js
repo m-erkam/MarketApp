@@ -23,10 +23,12 @@ export default StyleSheet.create({
     search:{
         borderRadius:10,
         flex:1,
-        borderColor:"#808080",
-        borderWidth:2,
+        
         backgroundColor:"white",
         height:45,
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 15,
         
     },
     search_text:{
@@ -34,7 +36,7 @@ export default StyleSheet.create({
     },  
     options:{
         flexDirection:"row",
-        justifyContent:"space-between",
+        
         alignItems:"center",
         marginBottom:5,
         padding:3,
@@ -45,12 +47,12 @@ export default StyleSheet.create({
         margin:2,
         borderRadius:10,
         padding:2,
-        alignItems:"center",
-        justifyContent:"center",
-        borderColor:"#808080",
-        borderWidth:2,
-        backgroundColor:"white",
         
+        justifyContent:"center",
+        backgroundColor:"white",
+        shadowColor: 'black',
+        shadowRadius: 5,
+        elevation: 15,
        
     },
     modal:{  

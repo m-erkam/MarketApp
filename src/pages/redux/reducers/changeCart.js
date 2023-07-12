@@ -37,7 +37,11 @@ const changeCart = (state = initState, action) => {
                 }           
             }
         }
-    }else {
+    }else if(action.type == actionTypes.replaceCart().type){
+        return action.payload;
+    }
+    
+    else {
         return state;
     }
 
