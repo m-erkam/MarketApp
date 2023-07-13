@@ -23,7 +23,7 @@ function Cart({ navigation, route }) {
 
     const getMyObject = async (key) => {
         try {
-            const jsonValue = await AsyncStorage.getItem("tempValue");
+            const jsonValue = await AsyncStorage.getItem(cartKey);
             console.log("get kısmı");
             console.log(jsonValue);
             return jsonValue != null ? JSON.parse(jsonValue) : null;
@@ -37,7 +37,7 @@ function Cart({ navigation, route }) {
         try {
             const jsonValue = JSON.stringify(value);
             console.log(jsonValue);
-            await AsyncStorage.setItem("tempValue", jsonValue);
+            await AsyncStorage.setItem(cartKey, jsonValue);
         } catch (e) {
             // saving error
         }
@@ -46,10 +46,12 @@ function Cart({ navigation, route }) {
     let cartObject = {
         cart:cart};
 
+  /*   dispatch(replaceCart(cartObject.cart)); */
+
+    console.log(cart);
     
     
-  /*   console.log(getMyObject(cartKey));
-    if(getMyObject(cartKey) == undefined || getMyObject(cartKey) == null){
+    /* if(getMyObject(cartKey) == undefined || getMyObject(cartKey) == null){
         cartObject = {cart:cart};
         console.log("başlangıç sonrası");
     }else{
@@ -59,11 +61,13 @@ function Cart({ navigation, route }) {
     } */
     console.log("cartObject");
     console.log(cartObject);
-    console.log("getMyObject");
-    console.log(getMyObject(cartKey));
 
-    
-    useEffect(async () => {
+
+    const store = async (object) => {
+        await storeData(object);
+    }
+
+    useEffect( () => {
         console.log('****************',getMyObject(cartKey))
 
         let newList = [];
@@ -91,9 +95,9 @@ function Cart({ navigation, route }) {
 
         setQuantities(newList);
 
-        await storeData(cartObject);
-        const object = await getMyObject(cartKey);
-        console.log(object);
+        store(cartObject);
+        /* const object = await getMyObject(cartKey);
+        console.log(object); */
     }, [cart]);
 
 
@@ -115,8 +119,7 @@ function Cart({ navigation, route }) {
         let currentIndex;
         for (let index = 0; index < quantities.length; index++) {
             const product = quantities[index];
-            { console.log(item) }
-            { console.log(product) }
+    
             if (item.title == product.title) {
                 currentIndex = index;
             }

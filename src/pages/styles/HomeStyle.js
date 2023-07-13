@@ -76,6 +76,11 @@ export default StyleSheet.create({
         fontWeight:"bold",
         fontSize:20,
         color:"white",
+    },
+    load_mod_in:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center",
     }
 
 })

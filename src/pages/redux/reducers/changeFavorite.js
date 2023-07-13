@@ -36,6 +36,9 @@ function changeFav(state = initState, action){
             }
         }
         
+    }else if(action.type == actionTypes.replaceFav().type){
+        return action.payload;
+    
     }else {
         return state;
     }

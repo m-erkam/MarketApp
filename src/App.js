@@ -32,6 +32,7 @@ function App(){
                                         }}/>
                     
                     <Tab.Screen name='Favorites' 
+                                initialParams={user} 
                                 component={Favorites} 
                                 options={{tabBarLabel:'Favorites', 
                                         tabBarIcon:() => (

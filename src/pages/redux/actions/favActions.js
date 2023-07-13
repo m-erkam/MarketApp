@@ -11,3 +11,9 @@ export const removeFav = (product) => {
         payload: product,
     };
 };
+export const replaceFav = (products) => {
+    return {
+        type: "REPLACE_FAV",
+        payload: products,
+    };
+};

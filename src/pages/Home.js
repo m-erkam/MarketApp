@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, TouchableOpacity, View, Alert, Text, TextInput, Modal, ScrollView, setState } from 'react-native'
+import { FlatList, TouchableOpacity, View, Alert, Text, TextInput, Modal, ScrollView, ActivityIndicator } from 'react-native'
 import axios from "axios"
 import ProductBox from './components/ProductBox';
 import styles from "./styles/HomeStyle"
 import MainRoundButton from './components/HomeRoundButton';
-import { addFav, removeFav } from './redux/actions/favActions';
-import { addCart, removeCart } from './redux/actions/cartActions';
+import { addFav, removeFav, replaceFav } from './redux/actions/favActions';
+import { addCart, removeCart, replaceCart } from './redux/actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 function Home({ navigation, route }) {
@@ -21,12 +22,23 @@ function Home({ navigation, route }) {
     const [filterCategoryVisible, setFilterCategoryVisible] = useState(false);
     const [sortVisible, setSortVisible] = useState(false);
     const [isEnabled, setIsEnabled ] = useState(true);
+    const [isFetchingCart, setIsFetchingCart ] = useState(true);
+    const [isFetchingFav, setIsFetchingFav ] = useState(true);
 
     const dispatch = useDispatch();
     const favs = useSelector((store) => store.favs);
     const cart = useSelector((store) => store.cart);
 
+    console.log("favs");
+    console.log(favs);
+    console.log("cart");
+    
+    console.log(cart);
+
+
     const user = route.params;
+    const cartKey = user.firstName + "cart";
+    const favKey = user.firstName + "favs";
 
     function setTimePassed() {
         setIsEnabled(false);
@@ -35,10 +47,10 @@ function Home({ navigation, route }) {
         const response = await axios.get(URL);
         setProducts(response.data.products);
         setManipulatedList(response.data.products);
-        setTimeout( () => {
+        /* setTimeout( () => {
             setTimePassed();
          },1000);
-       
+        */
     }
 
     
@@ -46,6 +58,68 @@ function Home({ navigation, route }) {
     useEffect(() => {
         fetch();
     }, [])
+
+    useEffect(() => {
+        getMyCartObject();
+    }, [])
+
+    useEffect(() => {
+        getMyFavObject();
+    }, [])
+
+    const getMyCartObject = async (key) => {
+        try {
+            const jsonValue = await AsyncStorage.getItem(cartKey);
+            console.log("get kısmı");
+            console.log(JSON.parse(jsonValue));
+
+            if(JSON.parse(jsonValue) == null){
+                let object = {cart:cart};
+                console.log("merhaba");
+                setIsFetchingCart(false);
+                return object;
+            }else if(JSON.parse(jsonValue).cart != undefined){
+                console.log("doğru yer")
+                dispatch(replaceCart(JSON.parse(jsonValue).cart));
+                setIsFetchingCart(false);
+                return JSON.parse(jsonValue).cart;
+            }
+            else{
+                console.log("yanlış yer")
+                return null;
+            }
+        } catch (e) {
+            console.log(e);
+            console.log("error get object");
+        }  
+    }
+
+    const getMyFavObject = async (key) => {
+        try {
+            const jsonValue = await AsyncStorage.getItem(favKey);
+            console.log("get kısmı");
+            console.log(JSON.parse(jsonValue));
+
+           
+
+            if (JSON.parse(jsonValue) == null) {
+                console.log("null kısmı")
+                setIsFetchingFav(false);
+                return {favs:favs};
+            }else if(JSON.parse(jsonValue).favs != undefined){
+                console.log("doğru yer")
+                dispatch(replaceFav(JSON.parse(jsonValue).favs));
+                setIsFetchingFav(false);
+                return JSON.parse(jsonValue).favs;
+            }else {
+                console.log("yanlış yer")
+                return null;
+            }
+        } catch (e) {
+            console.log(e);
+            console.log("error get object");
+        }  
+    }
 
 
     const renderProduct = ({ item }) => {
@@ -189,6 +263,15 @@ function Home({ navigation, route }) {
     return (
 
         <View style={styles.container}>
+            <Modal
+                visible={isFetchingCart}
+                animationType="fade"
+            >
+                <View style={styles.load_mod_in}>
+                    <ActivityIndicator size={50}/>
+                </View>
+            </Modal>
+
             <Modal
                 visible={filterVisible}
                 animationType="fade"
@@ -369,7 +452,7 @@ function Home({ navigation, route }) {
             </Modal>
 
 
-            <SkeletonPlaceholder enabled={isEnabled}>
+           {/*  <SkeletonPlaceholder enabled={isEnabled}> */}
                 <Text style={styles.welcome}> Welcome {user.firstName}! </Text>
                 <View style={styles.options}>
                     <View style={styles.search}>
@@ -389,14 +472,14 @@ function Home({ navigation, route }) {
 
 
                 </View>
-                <SkeletonPlaceholder enabled={isEnabled}>
+                {/* <SkeletonPlaceholder enabled={isEnabled}> */}
                     <FlatList
                         data={manipulatedList}
                         renderItem={renderProduct}
                         ItemSeparatorComponent={separator}
                         style={{ marginBottom: 100 }} />
-                </SkeletonPlaceholder>
-            </SkeletonPlaceholder>
+                {/* </SkeletonPlaceholder> */}
+            {/* </SkeletonPlaceholder> */}
 
         </View>
 
