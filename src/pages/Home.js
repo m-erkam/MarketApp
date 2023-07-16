@@ -3,7 +3,6 @@ import { FlatList, TouchableOpacity, View, Alert, Text, TextInput, Modal, Scroll
 import axios from "axios"
 import ProductBox from './components/ProductBox';
 import styles from "./styles/HomeStyle"
-import MainRoundButton from './components/HomeRoundButton';
 import { addFav, removeFav, replaceFav } from './redux/actions/favActions';
 import { addCart, removeCart, replaceCart } from './redux/actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -75,7 +74,6 @@ function Home({ navigation, route }) {
 
             if(JSON.parse(jsonValue) == null){
                 let object = {cart:cart};
-                console.log("merhaba");
                 setIsFetchingCart(false);
                 return object;
             }else if(JSON.parse(jsonValue).cart != undefined){
@@ -264,7 +262,7 @@ function Home({ navigation, route }) {
 
         <View style={styles.container}>
             <Modal
-                visible={isFetchingCart}
+                visible={isFetchingCart || isFetchingFav}
                 animationType="fade"
             >
                 <View style={styles.load_mod_in}>

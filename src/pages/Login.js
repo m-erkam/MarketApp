@@ -38,6 +38,7 @@ function Login({navigation}){
         if(isUser){
             navigation.navigate("RoofCart", realUser);
         }else{
+            console.log(users);
             Alert.alert("Wrong username or password");
         }
         

@@ -13,7 +13,6 @@ function Cart({ navigation, route }) {
     const [quantities, setQuantities] = useState([]);
     const [isBeginning, setIsBeginning] = useState(false);
     const [isEmpty, setIsEmpty] = useState(true);
-    const [isStored, setIsStored] = useState(0);
     const user = route.params;
     const cart = useSelector((store) => store.cart);
     const dispatch = useDispatch();
@@ -44,21 +43,11 @@ function Cart({ navigation, route }) {
     };
 
     let cartObject = {
-        cart:cart};
-
-  /*   dispatch(replaceCart(cartObject.cart)); */
+        cart: cart
+    };
 
     console.log(cart);
-    
-    
-    /* if(getMyObject(cartKey) == undefined || getMyObject(cartKey) == null){
-        cartObject = {cart:cart};
-        console.log("başlangıç sonrası");
-    }else{
-        cartObject = getMyObject(cartKey);
-        dispatch(replaceCart(cartObject.cart));
-        console.log("başlangıç");
-    } */
+
     console.log("cartObject");
     console.log(cartObject);
 
@@ -67,8 +56,7 @@ function Cart({ navigation, route }) {
         await storeData(object);
     }
 
-    useEffect( () => {
-        console.log('****************',getMyObject(cartKey))
+    useEffect(() => {
 
         let newList = [];
 
@@ -92,12 +80,9 @@ function Cart({ navigation, route }) {
 
             }
         }
-
         setQuantities(newList);
-
         store(cartObject);
-        /* const object = await getMyObject(cartKey);
-        console.log(object); */
+
     }, [cart]);
 
 
@@ -119,7 +104,7 @@ function Cart({ navigation, route }) {
         let currentIndex;
         for (let index = 0; index < quantities.length; index++) {
             const product = quantities[index];
-    
+
             if (item.title == product.title) {
                 currentIndex = index;
             }
@@ -171,8 +156,6 @@ function Cart({ navigation, route }) {
         return (
             <View>
                 {console.log("Renderlanıyor")}
-       {/*          {console.log(quantities)}
-                {console.log(currentIndex)} */}
                 <CartItemBox
                     product={item}
                     gotoDetails={gotoDetails}
